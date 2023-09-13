@@ -49,6 +49,52 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+
+body, p {
+    font-family: 'Oswald', sans-serif;
+}
+
+ol {
+    font-family: 'Roboto', sans-serif;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bulletslide {
+    display: flex;
+    flex-direction: column; /* To stack children vertically */
+    justify-content: center; /* To center children vertically */
+    align-items: center; /* To center children horizontally */
+    height: 75%; /* You can adjust this value or set it to a specific height */
+}
+
+.bulletslide ol {
+    margin: 0;
+    padding-left: 37px;  /* Adjust this value for desired indentation */
+}
+
+.bulletslide ol ol {
+    margin-top: 10px;    /* Adjust for spacing if needed */
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -56,12 +102,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
-}
-ol, ul {
-    list-style: none;
+    font-family: 'Oswald', sans-serif;
 }
 blockquote, q {
     quotes: none;
+    font-family: 'Oswald', sans-serif;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -82,7 +127,7 @@ table {
     want to leave anybody behind.
 */
 body {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
     min-height: 740px;
 
     background: rgb(215, 215, 215);
@@ -108,7 +153,6 @@ a {
     text-decoration: none;
     padding: 0 0.1em;
     background: rgba(255,255,255,0.5);
-    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
     border-radius: 0.2em;
 
     -webkit-transition: 0.5s;
@@ -121,7 +165,6 @@ a {
 a:hover,
 a:focus {
     background: rgba(255,255,255,1);
-    text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
 }
 
 /*
@@ -165,7 +208,7 @@ a:focus {
 
 .step {
     position: relative;
-    width: 900px;
+    width: 1170px;
     padding: 40px;
     margin: 20px auto;
 
@@ -178,6 +221,14 @@ a:focus {
     font-family: 'PT Serif', georgia, serif;
     font-size: 48px;
     line-height: 1.5;
+}
+
+.step.slide::before {
+    content: url('../img/logo.png'); /* Replace with the actual path to your logo */
+    position: absolute;
+    bottom: 17px;  /* Adjust the distance from the top as needed */
+    height: auto;
+    right: 27px;
 }
 
 /*
@@ -215,7 +266,7 @@ a:focus {
 .slide {
     display: block;
 
-    width: 900px;
+    width: 1280;
     height: 700px;
     padding: 40px 60px;
 
@@ -224,10 +275,8 @@ a:focus {
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 
-    color: rgb(102, 102, 102);
-    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
 
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 30px;
     line-height: 36px;
     letter-spacing: -1px;
