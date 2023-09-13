@@ -47,7 +47,7 @@
 
         <div id="Cover" class="step slide" data-x="-1600" data-y="-1500" data-autoplay="0">
             <q>Pembangunan Rangkaian Blockchain Ethereum dan DApp</q>
-            <p>Jabatan Ketua Menteri Melaka.</p>
+            <h1>Jabatan Ketua Menteri Melaka.</h1>
         </div>
 
         <div id="Objectives" class="step slide" data-x="-420" data-y="-1500">
@@ -59,7 +59,7 @@
         <div id="AboutMe" class="step slide" data-x="760" data-y="-1500">
             <h1>About Me</h1>
             <q>Azlan bin Abdul Aziz</q>
-            <p>Fullstack developer</p> <code>Typescript & Rust</code>
+            <p>Fullstack <code>Typescript</code> & <code>Rust</code> developer </p>
         </div>
 
         <div id="HighLevelView" class="step slide" data-x="1940" data-y="-1500">
@@ -86,16 +86,17 @@
             <h1>Install dependencies</h1>
             <div class="bulletslide">
                 <ol>
-                    <li>Window Subsystem for Linux
+                    <li>Window Subsystem for Linux or WSL
                         <ol>
-                            <li>Open PowerShell</li>
+                            <li>Open PowerShell and run;</li>
                             <li><code>wsl --install</code></li>
-                            <li>Restart</li>
+                            <li>Restart!</li>
                         </ol>
                     </li>
+                    <br />
                     <li>https://nodejs.org/en
                         <ol>
-                            <li>Open terminal/WSL</li>
+                            <li>Open terminal or WSL, run;</li>
                             <li><code>node -v</code></li>
                             <li><code>npm -v</code></li>
                         </ol>
@@ -122,35 +123,119 @@
         </div>
         <div id="Day1-PlanFirewallPorts" class="step slide" data-x="3120" data-y="630">
             <h1>Plan, configure firewall & ports</h1>
-            <div class="bulletslide">
-                <ol>
-                    <li>-</li>
-                </ol>
-            </div>
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    margin-top: 50px;
+                }
+
+                .tg td {
+                    border-color: black;
+                    border-style: solid;
+                    border-width: 1px;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    overflow: hidden;
+                    padding: 10px 5px;
+                    word-break: normal;
+                }
+
+                .tg th {
+                    border-color: black;
+                    border-style: solid;
+                    border-width: 1px;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    overflow: hidden;
+                    padding: 10px 5px;
+                    word-break: normal;
+                }
+
+                .tg .tg-n6bu {
+                    border-color: #9b9b9b;
+                    font-weight: bold;
+                    text-align: left;
+                    vertical-align: top
+                }
+
+                .tg .tg-2fdn {
+                    border-color: #9b9b9b;
+                    text-align: left;
+                    vertical-align: top
+                }
+            </style>
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-n6bu">Machine or terminal</th>
+                        <th class="tg-n6bu">IP Address</th>
+                        <th class="tg-n6bu">HTTP Port</th>
+                        <th class="tg-n6bu">TCP/UDP Port</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tg-2fdn">1</td>
+                        <td class="tg-2fdn">123.123.123.123</td>
+                        <td class="tg-2fdn">8545</td>
+                        <td class="tg-2fdn">30303</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-2fdn">2</td>
+                        <td class="tg-2fdn"></td>
+                        <td class="tg-2fdn">8546</td>
+                        <td class="tg-2fdn">30304</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-2fdn">3</td>
+                        <td class="tg-2fdn"></td>
+                        <td class="tg-2fdn">8547</td>
+                        <td class="tg-2fdn">30305</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div id="Day1-CreateEthAccs" class="step slide" data-x="3120" data-y="1340">
             <h1>Create Ethereum accounts</h1>
-            <div class="bulletslide">
-                <ol>
-                    <li>-</li>
-                </ol>
-            </div>
+            <pre>
+<code>
+mkdir geth-net && cd geth-net 
+mkdir <b>node1</b> node2 node3 <b>faucet</b> // Can have more than one faucet accounts
+
+geth --datadir node1 account new
+
+echo "0x...abc" > node1/account
+echo "Password" > node1/password
+
+// Do not forget to create a faucet account
+</code>
+            </pre>
         </div>
         <div id="Day1-CreateGenesis" class="step slide" data-x="3120" data-y="2050">
             <h1>Create genesis and initialise geth</h1>
-            <div class="bulletslide">
-                <ol>
-                    <li>-</li>
-                </ol>
-            </div>
+            <pre>
+                <code>
+// Download or copy a genesis file template
+// Edit to allocates initial balance for each node and faucet accounts
+
+geth --datadir node1 init genesis.json
+                </code>
+            </pre>
         </div>
         <div id="Day1-Startgeth" class="step slide" data-x="3120" data-y="2760">
             <h1>Start geth nodes</h1>
-            <div class="bulletslide">
-                <ol>
-                    <li>-</li>
-                </ol>
-            </div>
+            <p>Run the cmd below in <code>geth-net</code></p>
+            <pre>
+                <code>
+geth --datadir node1 --networkid 12345 --syncmode full --verbosity 3 
+--port 30303 --http --http.addr [machine_ip] --http.port 8545 
+--http.api "eth,web3" --syncmode=full --nodiscover --nat extip:[machine_ip]
+--mine --miner.etherbase "0x92...8a52" --unlock "0x92..8a52" 
+--password node1/password --allow-insecure-unlock
+                </code>
+            </pre>
         </div>
         <div id="Day2" class="step slide" data-x="4300" data-y="-1500">
             <h1>Day 2</h1>
@@ -254,11 +339,23 @@ WantedBy=multi-user.target
             </pre>
         </div>
 
+        <div class="step slide" data-x="5480" data-y="-1500">
+            <h1>Day 3</h1>
+            <div class="bulletslide">
+                <ul>
+                    <li>Intro to smart contract FT, NFT, ERCs</li>
+                    <li>Hardhat, OpenZeppelin</li>
+                    <li>Test-driven development</li>
+                    <li>Propose and design a basic use case</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="step slide" data-x="6660" data-y="-1500">
             <h1>Day 4</h1>
             <div class="bulletslide">
                 <ul>
-                    <li>Coding session</li>
+                    <li>Continue developing smart contract(s)</li>
                 </ul>
             </div>
         </div>
@@ -271,7 +368,7 @@ WantedBy=multi-user.target
                     <li>State management - Redux</li>
                     <br />
                     <li>Combine Hardhat and React projects as one</li>
-                    <li>Coding session</li>
+                    <li>Continue developing DApp...</li>
                 </ul>
             </div>
         </div>
@@ -290,7 +387,7 @@ WantedBy=multi-user.target
             <div class="bulletslide">
                 <ul>
                     <li>Deploying DApp and test</li>
-                    <li>Check Ethereum Network</li>
+                    <li>Review</li>
                     <li>Conclusion, Q&A</li>
                 </ul>
             </div>
