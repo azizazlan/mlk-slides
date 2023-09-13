@@ -127,7 +127,7 @@
                 .tg {
                     border-collapse: collapse;
                     border-spacing: 0;
-                    margin-top: 50px;
+                    margin-top: 30px;
                 }
 
                 .tg td {
@@ -196,6 +196,7 @@
                     </tr>
                 </tbody>
             </table>
+            <p>Note down sudo, username and password too!</p>
         </div>
         <div id="Day1-CreateEthAccs" class="step slide" data-x="3120" data-y="1340">
             <h1>Create Ethereum accounts</h1>
@@ -282,7 +283,7 @@ geth --datadir node1 --networkid 12345 --syncmode full --verbosity 3
             <code>
 server { //Edit /etc/nginx/sites-available/default
     ..
-    server_name melaka.block.com // Contoh!
+    server_name melaka.enet.com // Contoh!
     ..
     location /rpc/ {
         proxy_pass_header  Set-Cookie;
@@ -339,7 +340,7 @@ WantedBy=multi-user.target
             </pre>
         </div>
 
-        <div class="step slide" data-x="5480" data-y="-1500">
+        <div id="Day3" class="step slide" data-x="5480" data-y="-1500">
             <h1>Day 3</h1>
             <div class="bulletslide">
                 <ul>
@@ -351,7 +352,20 @@ WantedBy=multi-user.target
             </div>
         </div>
 
-        <div class="step slide" data-x="6660" data-y="-1500">
+        <div id="Day3-IntroSmarContract" class="step slide" data-x="5480" data-y="-790">
+            <h1>Introduction to smart contract</h1>
+        </div>
+        <div id="Day3-HardhatOpenZep" class="step slide" data-x="5480" data-y="-80">
+            <h1>Hardhat & OpenZeppelin</h1>
+        </div>
+        <div id="Day3-TDD" class="step slide" data-x="5480" data-y="630">
+            <h1>Test-driven development</h1>
+        </div>
+        <div id="Day3-DesignUseCase" class="step slide" data-x="5480" data-y="1340">
+            <h1>Use case</h1>
+        </div>
+
+        <div id="Day4" class="step slide" data-x="6660" data-y="-1500">
             <h1>Day 4</h1>
             <div class="bulletslide">
                 <ul>
@@ -360,12 +374,12 @@ WantedBy=multi-user.target
             </div>
         </div>
 
-        <div class="step slide" data-x="7840" data-y="-1500">
+        <div id="Day5" class="step slide" data-x="7840" data-y="-1500">
             <h1>Day 5</h1>
             <div class="bulletslide">
                 <ul>
                     <li>Intro to React and MUI</li>
-                    <li>State management - Redux</li>
+                    <li>React state management - Redux</li>
                     <br />
                     <li>Combine Hardhat and React projects as one</li>
                     <li>Continue developing DApp...</li>
