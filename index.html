@@ -16,6 +16,11 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&family=Oswald:wght@200;300;400;500;600;700&family=PT+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -189,41 +194,64 @@
         </div>
         <div id="Day2-ReverseProxy" class="step slide" data-x="4300" data-y="630">
             <h1>NGINX Reverse Proxy</h1>
-            <br />
-            <img class="imgAddingPeer" src="./img/geth nodes.png" alt="geth nodes" />
-        </div>
-        <div id="Day2-GethBackgrndSvc" class="step slide" data-x="4300" data-y="1340">
-            <h1>Geth background service</h1>
-            <code>/etc/systemd/system/geth.service</code> :
-            <pre>
             <code>
-                [Unit]
-                Description=Geth Ethereum client
-                After=network.target
-                [Service]
-                User=YOUR_USERNAME
-                Group=YOUR_USERNAME
-                ExecStart=/usr/bin/geth --YOUR_GETH_OPTIONS_HERE
-                Restart=always
-                RestartSec=3
-                LimitNOFILE=4096
-                [Install]
-                WantedBy=multi-user.target
+server { //Edit /etc/nginx/sites-available/default
+    ..
+    server_name melaka.block.com // Contoh!
+    ..
+    location /rpc/ {
+        proxy_pass_header  Set-Cookie;
+        proxy_set_header   X-Real-IP           $remote_addr;
+        proxy_set_header   X-Forwarded-For     $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto   $scheme;
+        proxy_set_header   Host                $http_host;
+        proxy_set_header   X-NginX-Proxy       true;
+        proxy_pass         http://127.0.0.1:8545/;
+        proxy_redirect     off;
+    }        
             </code>
-            </pre>
         </div>
 
-        <div class="step slide" data-x="5480" data-y="-1500">
-            <h1>Day 3</h1>
-            <div class="bulletslide">
-                <ul>
-                    <li>Intro to smart contracts, type and ERCs</li>
-                    <li>Hardhat & OpenZeppelin</li>
-                    <br />
-                    <li>Hands on TDD</li>
-                    <li>Design an app base on a simple use case</li>
-                </ul>
-            </div>
+        <div id="Day2-ReverseProxyPart2" class="step slide" data-x="4300" data-y="1340">
+            <h1>NGINX Reverse Proxy (contd.)</h1>
+            <code>
+sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+sudo systemctl reload nginx
+sudo systemctl restart nginx
+            </code>
+        </div>
+
+        <div id="Day2-GethBackgrndSvcPart1" class="step slide" data-x="4300" data-y="2050">
+            <h1>Geth background service</h1>
+            <code>/etc/systemd/system/geth.service</code> :
+            <br />
+            <code>
+[Unit]
+Description=Geth Ethereum client
+After=network.target
+[Service]
+User=YOUR_USERNAME
+Group=YOUR_USERNAME
+ExecStart=/usr/bin/geth --GETH_OPTIONS_HERE
+LimitNOFILE=4096
+[Install]
+WantedBy=multi-user.target
+            </code>
+        </div>
+        <div id="Day2-GethBackgrndSvcPart2" class="step slide" data-x="4300" data-y="2760">
+            <h1>Geth background service (contd)</h1>
+            <br />
+            <pre>
+<code>sudo systemctl daemon-reload</code>
+<code>sudo systemctl enable geth</code>
+<code>sudo systemctl start geth</code>
+
+<code>sudo systemctl status geth</code>
+<code>sudo journalctl -u geth.service</code>
+            </pre>
         </div>
 
         <div class="step slide" data-x="6660" data-y="-1500">

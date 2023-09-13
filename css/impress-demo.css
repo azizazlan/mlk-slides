@@ -58,18 +58,16 @@ body, p {
     font-family: 'Oswald', sans-serif;
 }
 
-pre, pre code {
-    text-align: left;
-    white-space: pre;  /* Ensure whitespace is preserved */
-    overflow-wrap: break-word; /* To ensure long lines get wrapped if needed */
-}
-
 ol {
     font-family: 'Roboto', sans-serif;
 }
 
 code {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', Courier, monospace;
+    word-wrap: break-word;
+    white-space: pre !important;
+    overflow-wrap: break-word !important;
+    font-size: smaller;
 }
 
 img {
