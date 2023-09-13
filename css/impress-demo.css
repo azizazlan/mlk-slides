@@ -29,7 +29,7 @@
 */
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -58,6 +58,12 @@ body, p {
     font-family: 'Oswald', sans-serif;
 }
 
+pre, pre code {
+    text-align: left;
+    white-space: pre;  /* Ensure whitespace is preserved */
+    overflow-wrap: break-word; /* To ensure long lines get wrapped if needed */
+}
+
 ol {
     font-family: 'Roboto', sans-serif;
 }
@@ -71,6 +77,15 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.imgAddingPeer {
+    position: relative; /* Absolute positioning relative to its closest positioned ancestor */
+    left: 790px;           /* Right edge aligns to the right edge of its positioned ancestor */
+    top: 195px;          /* Bottom edge aligns to the bottom edge of its positioned ancestor */
+    width: 325px;       /* Optional: define a width */
+    height: auto;       /* Optional: height adjusts based on width to maintain aspect ratio */
+    z-index: 10;        /* Ensure it stays on top; adjust this if it's behind other content */
 }
 
 .bulletslide {

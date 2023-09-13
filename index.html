@@ -40,29 +40,29 @@
         data-min-scale="0" data-perspective="1000" data-autoplay="0">
 
 
-        <div id="bored" class="step slide" data-x="-1600" data-y="-1500" data-autoplay="0">
+        <div id="Cover" class="step slide" data-x="-1600" data-y="-1500" data-autoplay="0">
             <q>Pembangunan Rangkaian Blockchain Ethereum dan DApp</q>
             <p>Jabatan Ketua Menteri Melaka.</p>
         </div>
 
-        <div class="step slide" data-x="-420" data-y="-1500">
+        <div id="Objectives" class="step slide" data-x="-420" data-y="-1500">
             <h1>Objectives</h1>
             <q>To deliver a working Private Ethereum Network with 3 nodes and a basic DApp in <strong>8</strong> days
                 (64hrs).</q>
         </div>
 
-        <div class="step slide" data-x="760" data-y="-1500">
+        <div id="AboutMe" class="step slide" data-x="760" data-y="-1500">
             <h1>About Me</h1>
             <q>Azlan bin Abdul Aziz</q>
-            <p>Lead developer</p>
+            <p>Fullstack developer</p> <code>Typescript & Rust</code>
         </div>
 
-        <div class="step slide" data-x="1940" data-y="-1500">
+        <div id="HighLevelView" class="step slide" data-x="1940" data-y="-1500">
             <h1>High level view</h1>
             <img src="./img/solution-topology.png" alt="common solution topology" class="center" />
         </div>
 
-        <div class="step slide" data-x="3120" data-y="-1500">
+        <div id="Day1" class="step slide" data-x="3120" data-y="-1500">
             <h1>Day 1</h1>
             <div class="bulletslide">
                 <ul>
@@ -77,7 +77,7 @@
             </div>
         </div>
         <!-- 710 vert diff-->
-        <div class="step slide" data-x="3120" data-y="-790">
+        <div id="Day1-InstallDependencies" class="step slide" data-x="3120" data-y="-790">
             <h1>Install dependencies</h1>
             <div class="bulletslide">
                 <ol>
@@ -98,8 +98,7 @@
                 </ol>
             </div>
         </div>
-
-        <div class="step slide" data-x="3120" data-y="-80">
+        <div id="Day1-InstallTools" class="step slide" data-x="3120" data-y="-80">
             <h1>Install tools</h1>
             <div class="bulletslide">
                 <ol>
@@ -112,18 +111,48 @@
                             <li><code>Add-WindowsCapability -Online -Name OpenSSH.Client</code> </li>
                         </ul>
                     </li>
-
                     <li>iTerm2 - Optional & Mac only</li>
                 </ol>
             </div>
         </div>
-
-        <div class="step slide" data-x="4300" data-y="-1500">
+        <div id="Day1-PlanFirewallPorts" class="step slide" data-x="3120" data-y="630">
+            <h1>Plan, configure firewall & ports</h1>
+            <div class="bulletslide">
+                <ol>
+                    <li>-</li>
+                </ol>
+            </div>
+        </div>
+        <div id="Day1-CreateEthAccs" class="step slide" data-x="3120" data-y="1340">
+            <h1>Create Ethereum accounts</h1>
+            <div class="bulletslide">
+                <ol>
+                    <li>-</li>
+                </ol>
+            </div>
+        </div>
+        <div id="Day1-CreateGenesis" class="step slide" data-x="3120" data-y="2050">
+            <h1>Create genesis and initialise geth</h1>
+            <div class="bulletslide">
+                <ol>
+                    <li>-</li>
+                </ol>
+            </div>
+        </div>
+        <div id="Day1-Startgeth" class="step slide" data-x="3120" data-y="2760">
+            <h1>Start geth nodes</h1>
+            <div class="bulletslide">
+                <ol>
+                    <li>-</li>
+                </ol>
+            </div>
+        </div>
+        <div id="Day2" class="step slide" data-x="4300" data-y="-1500">
             <h1>Day 2</h1>
             <div class="bulletslide">
                 <ul>
-                    <li>Interacts geth using modules in JS console</li>
-                    <li>Adding peers: admin mod., config & boot node</li>
+                    <li>Intro to Javascript console</li>
+                    <li>Adding peer</li>
                     <li>Using Google Metamask extension</li>
                     <br />
                     <li>Setup domain name, SSL for RPC endpoint</li>
@@ -131,6 +160,57 @@
                     <li>Configure background service</li>
                 </ul>
             </div>
+        </div>
+        <div id="Day2-IntroJSC" class="step slide" data-x="4300" data-y="-790">
+            <h1>Introduction to Javascript console</h1>
+            <code>$ geth --datadir node1 attach node1/geth.ipc</code>
+            <h4>Example commands:</h4>
+            <code>> admin.nodeInfo</code>
+            <br />
+            <code>> admin.peers</code>
+            <br />
+            <code>> net.peerCount</code>
+            <br />
+            <code>> eth.coinbase</code>
+            <br />
+            <code>> eth.blockNumber</code>
+        </div>
+        <div id="Day2-AddingPeer" class="step slide" data-x="4300" data-y="-80">
+            <h1>Adding peer</h1>
+            <br />
+            <code>> admin.nodeInfo.enode</code>
+            <br />
+            <code>"enode://146x..0345@..?discport=0"</code>
+            <br />
+            <br />
+            <code>> admin.addPeer(<strong>"enode://146x..?discport=0"</strong>)</code>
+            <br />
+            <img class="imgAddingPeer" src="./img/geth nodes.png" alt="geth nodes" />
+        </div>
+        <div id="Day2-ReverseProxy" class="step slide" data-x="4300" data-y="630">
+            <h1>NGINX Reverse Proxy</h1>
+            <br />
+            <img class="imgAddingPeer" src="./img/geth nodes.png" alt="geth nodes" />
+        </div>
+        <div id="Day2-GethBackgrndSvc" class="step slide" data-x="4300" data-y="1340">
+            <h1>Geth background service</h1>
+            <code>/etc/systemd/system/geth.service</code> :
+            <pre>
+            <code>
+                [Unit]
+                Description=Geth Ethereum client
+                After=network.target
+                [Service]
+                User=YOUR_USERNAME
+                Group=YOUR_USERNAME
+                ExecStart=/usr/bin/geth --YOUR_GETH_OPTIONS_HERE
+                Restart=always
+                RestartSec=3
+                LimitNOFILE=4096
+                [Install]
+                WantedBy=multi-user.target
+            </code>
+            </pre>
         </div>
 
         <div class="step slide" data-x="5480" data-y="-1500">
@@ -187,23 +267,24 @@
                 </ul>
             </div>
         </div>
-        <!--
+    </div>
+    <!--
     This is a UI plugin. You can read more about plugins in src/plugins/README.md.
     For now, I'll just tell you that this adds some graphical controls to navigate the
     presentation. In the CSS file you can style them as you want. We've put them bottom right.
     -->
-        <div id="impress-toolbar"></div>
-        <div class="hint">
-            <p>Use a spacebar or arrow keys to navigate. <br />
-                Press 'P' to launch speaker console.</p>
-        </div>
-        <script>
-            if ("ontouchstart" in document.documentElement) {
-                document.querySelector(".hint").innerHTML = "<p>Swipe left or right to navigate</p>";
-            }
-        </script>
-        <script src="js/impress.js"></script>
-        <script>impress().init();</script>
+    <div id="impress-toolbar"></div>
+    <div class="hint">
+        <p>Use a spacebar or arrow keys to navigate. <br />
+            Press 'P' to launch speaker console.</p>
+    </div>
+    <script>
+        if ("ontouchstart" in document.documentElement) {
+            document.querySelector(".hint").innerHTML = "<p>Swipe left or right to navigate</p>";
+        }
+    </script>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
 </body>
 
 </html>
