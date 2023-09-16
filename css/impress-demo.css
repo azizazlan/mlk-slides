@@ -52,6 +52,7 @@ time, mark, audio, video {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
+    color: #192a56;
 }
 
 body {
@@ -59,13 +60,13 @@ body {
 }
 
 p {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif, sans-serif;
     font-weight: 100;
     font-size: smaller;
 }
 
 ol, ul {
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif, sans-serif;
     font-weight: 100;
 }
 
@@ -104,11 +105,21 @@ img {
 .bulletslide ol, ul {
     margin: 0;
     padding-left: 75px;  /* Adjust this value for desired indentation */
+    margin-top: 10px;
 }
 
-.bulletslide ol ol {
-    margin-top: 10px;    /* Adjust for spacing if needed */
+li {
+    margin-top: 15px; 
 }
+
+.footnote {
+    font-size: 17px; /* Adjust to your preferred size */
+    position: absolute;
+    bottom: 30px;    /* Position it at the bottom of the slide */
+    left: 70px;     /* And towards the right, or adjust as needed */
+    color: #888;     /* A slightly gray color for subtlety */
+}
+
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -121,7 +132,7 @@ body {
 }
 blockquote, q {
     quotes: none;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif, sans-serif;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -233,7 +244,7 @@ a:focus {
     -o-box-sizing:      border-box;
     box-sizing:         border-box;
 
-    font-family: 'PT Serif', georgia, serif;
+    font-family: 'Montserrat', georgia, serif;
     font-size: 48px;
     line-height: 1.5;
 }
@@ -291,7 +302,7 @@ a:focus {
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 
 
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif, sans-serif;
     font-size: 30px;
     line-height: 36px;
     letter-spacing: -1px;

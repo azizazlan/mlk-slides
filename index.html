@@ -23,8 +23,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=PT+Sans&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&family=Montserrat:wght@300&family=Oswald:wght@200;300;400;500;600;700&family=PT+Sans&display=swap"
         rel="stylesheet">
     <link href="css/impress-demo.css" rel="stylesheet" />
     <link href="css/impress-common.css" rel="stylesheet" />
@@ -47,7 +49,7 @@
 
         <div id="Cover" class="step slide" data-x="-1600" data-y="-1500" data-autoplay="0">
             <q>Pembangunan Rangkaian Blockchain Ethereum dan DApp</q>
-            <h1>Jabatan Ketua Menteri Melaka.</h1>
+            <p>Jabatan Ketua Menteri Melaka.</p>
         </div>
 
         <div id="Objectives" class="step slide" data-x="-420" data-y="-1500">
@@ -59,7 +61,7 @@
         <div id="AboutMe" class="step slide" data-x="760" data-y="-1500">
             <h1>About Me</h1>
             <q>Azlan bin Abdul Aziz</q>
-            <p>Fullstack <code>Typescript</code> & <code>Rust</code> developer </p>
+            <p>Fullstack <code>Typescript</code> & <code>Rust</code> developer<br />Thuleen</p>
         </div>
 
         <div id="HighLevelView" class="step slide" data-x="1940" data-y="-1500">
@@ -111,7 +113,7 @@
                     <li>https://code.visualstudio.com/</li>
                     <li>https://git-scm.com/download/win</li>
                     <li>
-                        ssh
+                        ssh on Windows is built-in by default
                         <ul>
                             <li>Open PowerShell as Administrator and run;</li>
                             <li><code>Add-WindowsCapability -Online -Name OpenSSH.Client</code> </li>
@@ -134,42 +136,38 @@
                     border-color: black;
                     border-style: solid;
                     border-width: 1px;
-                    font-family: Arial, sans-serif;
-                    font-size: 14px;
-                    overflow: hidden;
-                    padding: 10px 5px;
-                    word-break: normal;
+                    font-family: 'JetBrains Mono', Courier, monospace;
+                    font-size: 21;
+                    padding: 15px 15px 15px 15px;
                 }
 
                 .tg th {
                     border-color: black;
                     border-style: solid;
                     border-width: 1px;
-                    font-family: Arial, sans-serif;
-                    font-size: 14px;
-                    font-weight: normal;
-                    overflow: hidden;
-                    padding: 10px 5px;
-                    word-break: normal;
+                    font-family: 'JetBrains Mono', Courier, monospace;
+                    font-size: 21px;
+                    padding: 15px 15px 15px 15px;
                 }
 
                 .tg .tg-n6bu {
                     border-color: #9b9b9b;
                     font-weight: bold;
-                    text-align: left;
+                    font-size: 21px;
+                    text-align: center;
                     vertical-align: top
                 }
 
                 .tg .tg-2fdn {
                     border-color: #9b9b9b;
-                    text-align: left;
+                    text-align: center;
                     vertical-align: top
                 }
             </style>
             <table class="tg">
                 <thead>
                     <tr>
-                        <th class="tg-n6bu">Machine or terminal</th>
+                        <th class="tg-n6bu">Terminal</th>
                         <th class="tg-n6bu">IP Address</th>
                         <th class="tg-n6bu">HTTP Port</th>
                         <th class="tg-n6bu">TCP/UDP Port</th>
@@ -184,13 +182,13 @@
                     </tr>
                     <tr>
                         <td class="tg-2fdn">2</td>
-                        <td class="tg-2fdn"></td>
+                        <td class="tg-2fdn">223.223.223.223</td>
                         <td class="tg-2fdn">8546</td>
                         <td class="tg-2fdn">30304</td>
                     </tr>
                     <tr>
                         <td class="tg-2fdn">3</td>
-                        <td class="tg-2fdn"></td>
+                        <td class="tg-2fdn">333.323.333.333</td>
                         <td class="tg-2fdn">8547</td>
                         <td class="tg-2fdn">30305</td>
                     </tr>
@@ -242,20 +240,23 @@ geth --datadir node1 --networkid 12345 --syncmode full --verbosity 3
             <h1>Day 2</h1>
             <div class="bulletslide">
                 <ul>
-                    <li>Intro to Javascript console</li>
+                    <li>Introduction to Geth Javascript console</li>
                     <li>Adding peer</li>
-                    <li>Using Google Metamask extension</li>
                     <br />
                     <li>Setup domain name, SSL for RPC endpoint</li>
                     <li>Configure NGINX Reverse Proxy</li>
-                    <li>Configure background service</li>
+                    <li>Configure geth background service<sup>*</sup></li>
                 </ul>
+                <div class="footnote">Optional and if you prefer.</div>
             </div>
         </div>
         <div id="Day2-IntroJSC" class="step slide" data-x="4300" data-y="-790">
             <h1>Introduction to Javascript console</h1>
+            <br />
+            <p>To attach JS console to a geth<sup>*</sup> node, run:</p>
+            <div class="footnote">Ensure geth node is running.</div>
             <code>$ geth --datadir node1 attach node1/geth.ipc</code>
-            <h4>Example commands:</h4>
+            <p>Example commands using module <code>admin,net</code> and <code>eth</code>:</p>
             <code>> admin.nodeInfo</code>
             <br />
             <code>> admin.peers</code>
@@ -277,6 +278,8 @@ geth --datadir node1 --networkid 12345 --syncmode full --verbosity 3
             <code>> admin.addPeer(<strong>"enode://146x..?discport=0"</strong>)</code>
             <br />
             <img class="imgAddingPeer" src="./img/geth nodes.png" alt="geth nodes" />
+            <div class="footnote">Quiz - How many times should we run the addPeer command so that all nodes become
+                peers?</div>
         </div>
         <div id="Day2-ReverseProxy" class="step slide" data-x="4300" data-y="630">
             <h1>NGINX Reverse Proxy</h1>
@@ -344,7 +347,7 @@ WantedBy=multi-user.target
             <h1>Day 3</h1>
             <div class="bulletslide">
                 <ul>
-                    <li>Intro to smart contract FT, NFT, ERCs</li>
+                    <li>Introduction to smart contract FT, NFT, ERCs</li>
                     <li>Hardhat, OpenZeppelin</li>
                     <li>Test-driven development</li>
                     <li>Propose and design a basic use case</li>
@@ -354,14 +357,117 @@ WantedBy=multi-user.target
 
         <div id="Day3-IntroSmarContract" class="step slide" data-x="5480" data-y="-790">
             <h1>Introduction to smart contract</h1>
+            <q>...self-executing <b>immutable</b> code on <b>decentralised</b> network...<br /><br />Type FT (ERC21) and
+                NFT (ERC721)<sup>*</sup>
+            </q>
+            <p>https://ethereum.org/en/developers/docs/standards/tokens/</p>
+            <div class="footnote">There are hybrid. ERC - Ethereum request for comment became the "standard".</div>
         </div>
-        <div id="Day3-HardhatOpenZep" class="step slide" data-x="5480" data-y="-80">
+        <div id="Day3-ContractSnippet" class="step slide" data-x="5480" data-y="-80">
+            <pre>
+                <code>
+// SPDX-License-Identifier: MIT // or GPL, LGPL, BSD, Unlicense etc
+pragma solidity ^0.8.0;
+
+contract SalamMelaka {
+    string public name;
+
+    constructor(string memory _name) {
+        name = _name;
+    }
+
+    function salam() public view returns (string memory) {
+        return string(abi.encodePacked("Assalamualaikum, ", name, "!"));
+    }
+}
+                </code>
+            </pre>
+        </div>
+        <div id="Day3-HardhatOpenZep" class="step slide" data-x="5480" data-y="630">
             <h1>Hardhat & OpenZeppelin</h1>
+            <p><b><i>Hardhat</i></b> is a <u>development environment</u> for Ethereum. (https://hardhat.org/docs)
+            <p>
+            <p><b><i>OpenZeppelin</i></b> is smart contract <u>libraries</u> that provides <u>reusable</u> components
+                and
+                <u>security</u>.
+                (https://www.openzeppelin.com/)
+            </p>
+            <p>Let's dive in and use Hardhat to build a smart contract!</p>
         </div>
-        <div id="Day3-TDD" class="step slide" data-x="5480" data-y="630">
-            <h1>Test-driven development</h1>
+        <div id="Day3-SCDevPart1" class="step slide" data-x="5480" data-y="1340">
+            <h1>Smart contract dev - Part 1</h1>
+            <pre>
+                <code>
+    mkdir smart-contract-1 && cd smart-contract-1
+
+    npx hardhat
+    > Create a TypeScript project, then ENTER, y and y.
+    npx hardhat compile
+    npx hardhat test
+
+    // Create SalamMelaka.sol file in the contracts directory
+    // Create SalamMelaka.ts file in the tests directory
+
+    npx hardhat test
+
+    // Create a new smart contract function - from test to solidity
+                </code>
+            </pre>
+            <div class="footnote">
+                git clone from https://github.com/azizazlan/smart-contract-1.git
+            </div>
+
+            <div class="notes">
+                1. Add await salamMelaka.changeName("Idris Jusoh") in new "it" block in the test file;
+                2. Add the new function changeName in the solidity file.
+                3. npx hardhat compile // you notice the error gone!
+            </div>
         </div>
-        <div id="Day3-DesignUseCase" class="step slide" data-x="5480" data-y="1340">
+        <div id="Day3-SCDevPart2" class="step slide" data-x="5480" data-y="2050">
+            <h1>Smart contract dev - Part 2</h1>
+            <pre>
+                <code>
+    ...
+    import "@openzeppelin/contracts/access/Ownable.sol";
+
+    contract SalamMelaka is <b style="color: blue; background-color: gainsboro;">Ownable</b> {
+        string public name;
+
+        event NameChanged(string value);
+        ...
+        function changeName(string memory _name) public <b style="color: blue; background-color: gainsboro;">onlyOwner</b> {
+            name = _name;
+            emit NameChanged(_name);
+        }
+        ...
+    }
+                </code>
+            </pre>
+            <div class="notes">
+                <pre>
+1.Create a new hardhat project. 
+2.Then install OZ:
+npm install @openzeppelin/contracts
+
+3.Copy file SalamMelaka.sol and edit:
+ - add event, 
+ - inheritance Ownable and;
+ - onlyOwner modifier.
+
+ 4.Add test file
+
+ it("Should revert when non-owner attempt to change", async function () {
+    const { salamMelaka, owner, otherAccount } = await loadFixture(
+      deploySalamMelaka
+    );
+
+    await expect(salamMelaka.connect(otherAccount).changeName("Idris Jusoh"))
+      .to.be.reverted;
+  });
+                </pre>
+            </div>
+        </div>
+        <div id="Day3-DesignUseCase" class="step slide" data-x="5480" data-y="2760">
             <h1>Use case</h1>
         </div>
 
@@ -378,7 +484,7 @@ WantedBy=multi-user.target
             <h1>Day 5</h1>
             <div class="bulletslide">
                 <ul>
-                    <li>Intro to React and MUI</li>
+                    <li>Introduction to React and MUI</li>
                     <li>React state management - Redux</li>
                     <br />
                     <li>Combine Hardhat and React projects as one</li>
